@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'admin' => 'admins/homes#top'
+
+  # 管理者namespace
+  devise_for :admin, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
+  # resources :admins, only: [:new]
+
   devise_for :customers
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
