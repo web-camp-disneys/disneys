@@ -40,16 +40,3 @@
           
       </tbody>
 </table>
-
- <div class="table">
-      <h1>User info</h1>
-      <%= form_with model:@user, local:true do |f| %>
-      <p>Name</p>
-      <%= f.text_field :name %>
-      <p>Image</p>
-      <%= f.attachment_field :profile_image %>
-      <p>Introduction</p>
-      <%= f.text_area :introduction %> <br>
-      <%= f.submit 'Update User', class:"btn btn-secondary" %>
-      <% end %>
-    </div>
