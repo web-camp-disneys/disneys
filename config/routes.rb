@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to: 'public/homes#top'
   devise_for :customers, controllers: {
   sessions:      'public/sessions',
