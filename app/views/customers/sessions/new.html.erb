@@ -1,7 +1,7 @@
 <h2>会員の方はこちらからログイン</h2>
 
 <!--12/14種坂　下記form_withへ書き換えが必要-->
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
   <div class="field">
     <%= f.label :email, "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -24,4 +24,4 @@
   </div>
 <% end %>
 
-<%= render "customers/shared/links" %>
+<%= render "public/shared/links" %>
