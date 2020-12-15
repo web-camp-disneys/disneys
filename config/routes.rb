@@ -23,12 +23,12 @@ Rails.application.routes.draw do
 #   get 'customers/sign_up' => 'customers/registrations#new'
 # >>>>>>> 1c6cc002e0d99abfeaf20dd11ddbfcf1ff702216
 # =======
-  devise_for :customers
+  # devise_for :customers
 
-  root to: 'public/homes#top'
+  # root to: 'public/homes#top'
 
 # 12/14種坂　下記、namespace実装で不要になるかもしれません
 # また、新規登録画面のみの記載です。ログイン、ログアウトはなぜか指定せずとも動きました。
-  get 'customers/sign_up' => 'customers/registrations#new'
+  # get 'customers/sign_up' => 'customers/registrations#new'
 
 end
