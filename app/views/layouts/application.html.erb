@@ -9,6 +9,20 @@
   </head>
 
   <body>
+
+        <% if customer_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "新規登録", customers_sign_up_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_customer_session_path %>
+      </li>
+    <% end %>
+
     <!--管理者ページ-->
     <% if admin_signed_in? %>
       <li>
@@ -23,6 +37,7 @@
       </li>
     <% end %>
     <!--管理者ページ-->
+
     <%= yield %>
   </body>
 </html>
