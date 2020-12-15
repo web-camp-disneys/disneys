@@ -10,34 +10,46 @@
           
           <tr>
               <td>氏名</td>
-              <td><%= @customer.id %></td>
+              <td><%= @customer.last_name %></td>
           </tr>
           
           <tr>
               <td>フリガナ</td>
-              <td><%= @customer.id %></td>
+              <td><%= @customer.last_name_kana %></td>
           </tr>
           
           <tr>
               <td>郵便番号</td>
-              <td><%= @customer.id %></td>
+              <td><%= @customer.postal_code %></td>
           </tr>
           
           <tr>
               <td>住所</td>
-              <td><%= @customer.id %></td>
+              <td><%= @customer.address %></td>
           </tr>
           
           <tr>
               <td>電話番号</td>
-              <td><%= @customer.id %></td>
+              <td><%= @customer.telephone_number %></td>
           </tr>
           
           <tr>
               <td>メールアドレス</td>
-              <td><%= @customer.id %></td>
+              <td><%= @customer.email %></td>
           </tr>
           
       </tbody>
 </table>
 
+ <div class="table">
+      <h1>User info</h1>
+      <%= form_with model:@user, local:true do |f| %>
+      <p>Name</p>
+      <%= f.text_field :name %>
+      <p>Image</p>
+      <%= f.attachment_field :profile_image %>
+      <p>Introduction</p>
+      <%= f.text_area :introduction %> <br>
+      <%= f.submit 'Update User', class:"btn btn-secondary" %>
+      <% end %>
+    </div>
