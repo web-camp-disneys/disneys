@@ -12,7 +12,11 @@
         <% @customers.each do |customer| %>
           <tr>
             <td><%= customer.id %></td>
-            <td><%= customer.first_name %></td>
+            <td>
+              <%= link_to admins_customer_path(customer.id) do %>
+              <%= "#{customer.last_name} #{customer.first_name}" %>
+              <% end %>
+            </td>
             <td><%= customer.email %></td>
             <td>退会済or有効</td>
           </tr>
