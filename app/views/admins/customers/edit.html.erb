@@ -3,7 +3,7 @@
 <table class="table table-hover table-inverse">
           
       <tbody>
-          <%= form_with model:@customer, url: admins_customers_path(@customer.id), method: :patch, local:true do |f| %>
+          <%= form_with model:@customer, url: admins_customer_path(@customer.id), method: :patch, local:true do |f| %>
           <tr>
               <td>会員ID</td>
               <td><%= @customer.id %></td>
@@ -44,7 +44,7 @@
               <td></td>
           </tr>
           
-          <%= f.submit '変更を保存する', class:"btn btn-secondary" %>
+          <tr><%= f.submit '変更を保存する', class:"btn btn-secondary" %></tr>
           <% end %>
       </tbody>
 </table>
