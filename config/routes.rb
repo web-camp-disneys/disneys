@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # 管理者が見る商品情報
   namespace :admins do
-    resources :items, only:[:index, :new, :create, :edit, :update, :destroy]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update, :destroy]
   end
   
   #管理者が見る商品ジャンル
