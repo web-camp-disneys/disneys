@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
   # 管理者が見る商品情報
   namespace :admins do
-    resources :items
+    resources :items, only:[:index, :new, :create, :edit, :update, :destroy]
   end
   
+  #管理者が見る商品ジャンル
+  namespace :admins do
+    resources :genres, only:[:index, :create, :edit, :update, :destroy]
+  end
+
   # 管理者が見る利用者情報
   namespace :admins do
     resources :customers, only:[:index, :show, :edit, :update]
   end
-  
+
   get 'admin' => 'admins/homes#top'
 
   # 管理者namespace

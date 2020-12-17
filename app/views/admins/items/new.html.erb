@@ -1,0 +1,16 @@
+<h1>新規商品登録ページ</h1>
+<%= form_with model:@item, url: admins_items_path, method: :new, local:true do |f| %>
+    <p>商品写真</p>
+    <%= f.attachment_field :image %>
+    <p>商品名</p>
+    <%= f.text_field :name %>
+    <p>商品説明</p>
+    <%= f.text_area :introduction %>
+    <p>ジャンル</p>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name  %>
+    <p>税抜価格</p>
+    <%= f.number_field :price %>
+    <p>販売ステータス</p>
+    
+    <%= f.submit '新規登録', class:"btn btn-secondary" %>
+<% end %>
