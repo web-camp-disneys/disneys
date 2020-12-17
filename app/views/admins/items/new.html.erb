@@ -11,6 +11,7 @@
     <p>税抜価格</p>
     <%= f.number_field :price %>
     <p>販売ステータス</p>
+    <%= f.select :is_active, [['販売中',0],['販売停止',1]],{ include_blank: true, selected: 0 } %>
     
     <%= f.submit '新規登録', class:"btn btn-secondary" %>
 <% end %>
