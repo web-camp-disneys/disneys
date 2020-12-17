@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  
+  # 管理者が見る商品情報
   namespace :admins do
     resources :items
   end
-   
+  
+  # 管理者が見る利用者情報
   namespace :admins do
     resources :customers, only:[:index, :show, :edit, :update]
   end
