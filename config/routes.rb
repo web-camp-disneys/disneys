@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  
+
+  namespace :admins do
+    resources :genres, only:[:index, :create, :edit, :update, :destroy]
+  end
   namespace :admins do
     resources :customers, only:[:index, :show, :edit, :update]
   end
-  
+
   get 'admin' => 'admins/homes#top'
 
   # 管理者namespace

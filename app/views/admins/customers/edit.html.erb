@@ -1,7 +1,8 @@
 <h1><%="#{@customer.last_name} #{@customer.first_name}"%>さんの会員情報の編集</h1>
+
 <%= form_with model:@customer, url: admins_customer_path(@customer.id), method: :patch, local:true do |f| %>
 <table class="table table-hover table-inverse">
-          
+
       <tbody>
           <tr>
               <td>会員ID</td>
@@ -36,7 +37,7 @@
               <td></td>
           </tr>
           <tr>
-              <td><%= f.submit '変更を保存する', class:"btn btn-secondary" %</td>
+              <td><%= f.submit '変更を保存する', class:"btn btn-secondary" %></td>
           </tr>
       </tbody>
 </table>
