@@ -51,4 +51,15 @@ ActiveRecord::Schema.define(version: 2020_12_17_065038) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.integer "genre_id"
+    t.text "introduction"
+    t.string "image_id"
+    t.integer "price"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
