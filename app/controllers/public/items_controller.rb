@@ -9,9 +9,9 @@ class Public::ItemsController < ApplicationController
 
   def genre_index
     @items = Item.all.find(params[:id])
-    
+
   end
-  
+
   def show
      @items = Item.where(is_active: false)
     @genres = Genre.where(is_active: true)
@@ -19,9 +19,11 @@ class Public::ItemsController < ApplicationController
       @genre = Genre.find(params[:genre_id])
     end
     @item = Item.find(params[:id])
-    # @cart_item = CartItem.new
+
+        # 種坂追記12/18 ※モデル名にアンダーバーを使ってもクラス名にアンダーバーはつかない
+    @cart_item = CartItem.new
   end
-  
-  
-  
+
+
+
 end

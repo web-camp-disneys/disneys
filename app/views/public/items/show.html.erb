@@ -31,16 +31,25 @@
             <td>商品説明</td>
             <td><%= @item.introduction %></td>
         </tr>
-        
+
         <tr>
             <td><h3><%= @item.price %></h3>（税込）</td>
         </tr>
     </tbody>
 </table>
- 
+
 <!--カートモデルが必要なためコメントアウトしてます。-->
 <%#= form_with model:@cart_item, url: public_cartitem_path_item_path, method: :patch, local:true do |f| %>
 <%#= f.number_field :price, :placeholder => "個数選択" %>
 <%#= f.submit 'カートに追加', class:"btn btn-secondary" %>
 <%# end %>
 <!--カートモデルが必要なためコメントアウトしてます。-->
+
+<!--12/18タネサカ追記-->
+<%= form_with model: @cart_item, url: public_cart_items_path, local:true do |f| %>
+<%= f.hidden_field :customer_id, value: current_customer.id %>
+<%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.number_field :amount, min:1, max:10 %>
+
+  <%= f.submit 'カートに追加' %>
+<% end %>

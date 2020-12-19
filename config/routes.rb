@@ -52,7 +52,11 @@ resources :customers, only:[:show, :edit, :update] do
         end
       end
 # タネサカ仮ルーティング12/18
-resources :cart_items, only:[:index, :create, :update, :destroy]
+resources :cart_items, only:[:index, :create, :update, :destroy, :edit] do
+    collection do
+    delete 'destroy_all'
+    end
+  end
 end
 
 end

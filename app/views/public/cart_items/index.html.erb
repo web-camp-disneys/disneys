@@ -1,0 +1,36 @@
+<h2>ショッピングカート</h2>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>商品名</th>
+      <th>単価（税込み）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subtotal = 0 %>
+    <% @total = 0 %>
+<% @cart_items.each do |cart_item| %>
+<tr>
+  <td><%= attachment_image_tag(cart_item.item, :image, size: "50x40", fallback: "no_image.jpg") %></td>
+ <td><%= cart_item.item.name %></td>
+  <td><%= cart_item.item.price %></td>
+<td>
+  <%= form_with model: cart_item, url: public_cart_item_path(cart_item.id), method: :patch, local:true do |f| %>
+    <%= f.number_field :amount, min:1, max:10 %>
+    <%= f.submit "変更" %>
+  <% end %></td>
+
+  <td><%= @subtotal = cart_item.item.price * cart_item.amount %></td>
+  <% @total += @subtotal %>
+  <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete %></td>
+</tr>
+<% end %>
+  </tbody>
+</table>
+<p>合計金額<%= @total %></p>
+<p><%= link_to "カートを空にする", destroy_all_public_cart_items_path, method: :delete %></p>
+<p><%= link_to "買い物を続ける", public_items_path %></p>

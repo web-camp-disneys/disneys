@@ -18,9 +18,6 @@ class Admins::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-
-    # 種坂追記12/18 ※モデル名にアンダーバーを使ってもクラス名にアンダーバーはつかない
-    @cart_item = CartItem.new
   end
 
   def edit
