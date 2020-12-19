@@ -3,12 +3,14 @@
   <head>
     <title>WorkGithub</title>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <%= flash[:notice] %>
+  <%= render 'layouts/header' %>
     <!--利用者ログイン・ログアウト-->
     <h3>利用者ログイン</h3>
     <% if customer_signed_in? %>
