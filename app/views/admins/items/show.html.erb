@@ -29,3 +29,12 @@
 </table>
 
 <%= link_to '商品編集', edit_admins_item_path(@item.id) %>
+
+
+<!--12/18タネサカ追記-->
+<%= form_with model: @cart_item, url: public_cart_items_path, local:true do |f| %>
+
+  <%= f.number_field :amount, min:1, max:10 %>
+
+  <%= f.submit 'カートに追加' %>
+<% end %>

@@ -48,6 +48,8 @@ resources :customers, only:[:show, :edit, :update] do
             #ユーザーの会員状況を更新
         end
       end
+# タネサカ仮ルーティング12/18
+resources :cart_items, only:[:index, :create, :update, :destroy]
 end
 
 end
