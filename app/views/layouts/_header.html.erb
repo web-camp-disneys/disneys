@@ -1,7 +1,10 @@
 <header>
     <%# if customer.present %> 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       <a class="navbar-brand" href="/">長野ケーキ</a>
+    <nav class="navbar navbar-light" style="background-color: #000000;">
+
+       <a class="navbar-brand" style="color: #ffffff;" href="/">
+           長野ケーキ
+       </a>
          <ul class="nav pull-right nav-pills ml-auto mt-2 mt-lg-0">
           <% if customer_signed_in? %>
            <li class="nav-item"><%= link_to "お客様ログアウト", destroy_customer_session_path, method: :delete, class: 'fas fa-home nav-link text-light' %></li>
@@ -16,16 +19,16 @@
     
     <%# else %>
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-light" style="background-color: #000000;">
          <ul class="nav pull-right nav-pills ml-auto mt-2 mt-lg-0">
           <% if admin_signed_in? %>
            <li class="nav-item"><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'fas fa-home nav-link text-light' %></li>
-           <li class="nav-item"><%= link_to "ジャンル一覧", admins_customers_path, class: 'fas fa-users nav-link text-light' %></li>
-           <li class="nav-item"><%= link_to "利用者一覧",　admins_customers_path, class: 'fas fa-book-open nav-link text-light' %></li>
-           <li class="nav-item"><%= link_to "商品一覧",　admins_items_path, class: 'fas fa-book-open nav-link text-light' %></li>
+           <li class="nav-item"><%= link_to "ジャンル一覧", admins_genres_path, class: 'fas fa-boxes nav-link text-light' %></li>
+           <li class="nav-item"><%= link_to "利用者一覧", admins_customers_path, class: 'fas fa-users nav-link text-light' %></li>
+           <li class="nav-item"><%= link_to "商品一覧", admins_items_path, class: 'fas fa-book-open nav-link text-light' %></li>
           <% else %>
-            <li class="nav-item"><%= link_to "管理者新規登録", new_customer_registration_path, class: 'fas fa-user-plus nav-link text-light' %></li>
-            <li class="nav-item"><%= link_to "管理者ログイン", new_customer_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %></li>
+            <li class="nav-item"><%= link_to "管理者新規登録", new_admin_registration_path, class: 'fas fa-user-plus nav-link text-light' %></li>
+            <li class="nav-item"><%= link_to "管理者ログイン", new_admin_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %></li>
           <% end %>
          </ul>
     </nav>
