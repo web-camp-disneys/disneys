@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :customers, only:[:index, :show, :edit, :update]
   end
 
-
   get 'admin' => 'admins/homes#top'
 
   # 管理者namespace
@@ -49,5 +48,11 @@ resources :customers, only:[:show, :edit, :update] do
         end
       end
 end
+
+  # 配送先
+  scope module: :public do
+    resources :addresses, only:[:index, :create, :edit, :update, :destroy]
+  end
+
 
 end
