@@ -3,60 +3,16 @@
   <head>
     <title>WorkGithub</title>
     <%= csrf_meta_tags %>
-    
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/d7433381ba.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <%= flash[:notice] %>
+  
   <%= render 'layouts/header' %>
-    <!--利用者ログイン・ログアウト-->
-    <h3>利用者ログイン</h3>
-    <% if customer_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to "マイページ", public_customer_path(current_customer.id) %>
-      </li>
-      <li>
-        <%= link_to "商品一覧", public_items_path %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_customer_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_customer_session_path %>
-      </li>
-    <% end %>
-     <!--利用者ログイン・ログアウト-->
-
-    <!--管理者ログイン・ログアウト-->
-    <h3>管理者ログイン</h3>
-    <% if admin_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to 'ジャンル一覧、投稿', admins_genres_path %>
-      </li>
-      <li>
-        <%= link_to '利用者一覧', admins_customers_path %>
-      </li>
-      <li>
-        <%= link_to '商品一覧', admins_items_path %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_admin_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_admin_session_path %>
-      </li>
-    <% end %>
-    <!--管理者-->
+  <%= flash[:notice] %>
 
     <%= yield %>
   </body>
