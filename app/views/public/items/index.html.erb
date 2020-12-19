@@ -1,8 +1,12 @@
 <h1>商品一覧ページ</h1>
+<h3>商品一覧（全<%= @items.count%>件）</h3>
+
 <% @items.each do |item| %>
+<div class="products">
     <%= attachment_image_tag item, :image, format: 'jpeg', size:"200x200", fallback: "no_image.jpg" %>
     <%= link_to public_item_path(item.id) do %>
         <%= item.name %>
     <% end %>
     <%= item.price %>
+</div>
 <% end %>

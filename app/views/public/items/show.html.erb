@@ -23,3 +23,8 @@
         </tr>
     </tbody>
 </table>
+ 
+<%= form_with model:@cart_item, url: public_cartitem_path_item_path, method: :patch, local:true do |f| %>
+<%= f.number_field :price, :placeholder => "個数選択" %>
+<%= f.submit 'カートに追加', class:"btn btn-secondary" %>
+<% end %>
