@@ -1,31 +1,34 @@
 <header>
-     
+    <%# if customer.present %> 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
        <a class="navbar-brand" href="/">長野ケーキ</a>
-         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+         <ul class="nav pull-right nav-pills ml-auto mt-2 mt-lg-0">
           <% if customer_signed_in? %>
-           <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'fas fa-home nav-link text-light' %></li>
+           <li class="nav-item"><%= link_to "お客様ログアウト", destroy_customer_session_path, method: :delete, class: 'fas fa-home nav-link text-light' %></li>
            <li class="nav-item"><%= link_to "マイページ", public_customer_path(current_customer.id), class: 'fas fa-users nav-link text-light' %></li>
            <li class="nav-item"><%= link_to "商品一覧", public_items_path, class: 'fas fa-book-open nav-link text-light' %></li>
           <% else %>
-            <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: 'fas fa-user-plus nav-link text-light' %></li>
-            <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %></li>
+            <li class="nav-item"><%= link_to "お客様新規登録", new_customer_registration_path, class: 'fas fa-user-plus nav-link text-light' %></li>
+            <li class="nav-item"><%= link_to "お客様ログイン", new_customer_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %></li>
           <% end %>
          </ul>
     </nav>
     
+    <%# else %>
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       <a class="navbar-brand" href="/">長野ケーキ</a>
-         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+         <ul class="nav pull-right nav-pills ml-auto mt-2 mt-lg-0">
           <% if admin_signed_in? %>
-           <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'fas fa-home nav-link text-light' %></li>
+           <li class="nav-item"><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'fas fa-home nav-link text-light' %></li>
            <li class="nav-item"><%= link_to "ジャンル一覧", admins_customers_path, class: 'fas fa-users nav-link text-light' %></li>
            <li class="nav-item"><%= link_to "利用者一覧",　admins_customers_path, class: 'fas fa-book-open nav-link text-light' %></li>
            <li class="nav-item"><%= link_to "商品一覧",　admins_items_path, class: 'fas fa-book-open nav-link text-light' %></li>
           <% else %>
-            <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: 'fas fa-user-plus nav-link text-light' %></li>
-            <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %></li>
+            <li class="nav-item"><%= link_to "管理者新規登録", new_customer_registration_path, class: 'fas fa-user-plus nav-link text-light' %></li>
+            <li class="nav-item"><%= link_to "管理者ログイン", new_customer_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %></li>
           <% end %>
          </ul>
     </nav>
+    
+    <%# end %>
 </header>
