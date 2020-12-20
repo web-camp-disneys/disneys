@@ -1,6 +1,6 @@
 <h1><%="#{@customer.last_name} #{@customer.first_name}"%>さんの会員情報の編集</h1>
 
-<%= form_with model:@customer, url: public_customer_path(@customer.id), method: :patch, local:true do |f| %>
+<%= form_with model:@customer, url: customers_edit_path(@customer.id), method: :patch, local:true do |f| %>
 <table class="table table-hover table-inverse">
 
       <tbody>
@@ -38,4 +38,4 @@
       </tbody>
 </table>
 <% end %>
-<%= link_to "退会する", unsubscribe_public_customer_path %>
+<%= link_to "退会する", customers_unsubscribe_path %>
