@@ -49,7 +49,7 @@
 <%= form_with model: @cart_item, url: public_cart_items_path, local:true do |f| %>
 <%= f.hidden_field :customer_id, value: current_customer.id %>
 <%= f.hidden_field :item_id, value: @item.id %>
-  <%= f.number_field :amount, min:1, max:10 %>
+  <%= f.number_field :amount,value:1, min:1, max:10 %>
 
   <%= f.submit 'カートに追加' %>
 <% end %>

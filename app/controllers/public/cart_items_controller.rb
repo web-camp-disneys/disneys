@@ -2,18 +2,22 @@ class Public::CartItemsController < ApplicationController
 
   def create
      @cart_item = CartItem.new(cart_item_params)
+     if @cart_item.amount.present?
    # すでにカートにある商品を追加した場合、数量表示のみを変更する
-     @cart_items = current_customer.cart_items.all
-     @cart_items.each do |cart_item|
-       if cart_item.item_id == @cart_item.item_id
-         new_amount = cart_item.amount + @cart_item.amount
-         cart_item.update_attribute(:amount, new_amount)
-         @cart_item.delete
-       end
+       @cart_items = current_customer.cart_items.all
+       @cart_items.each do |cart_item|
+         if cart_item.item_id == @cart_item.item_id
+           new_amount = cart_item.amount + @cart_item.amount
+           cart_item.update_attribute(:amount, new_amount)
+           @cart_item.delete
+         end
        end
 # ここまで
-   @cart_item.save
-   redirect_to public_cart_items_path
+       @cart_item.save
+       redirect_to public_cart_items_path
+     else
+       redirect_to public_item_path(@cart_item.item.id)
+     end
   end
 
  def index
