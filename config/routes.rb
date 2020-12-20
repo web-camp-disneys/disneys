@@ -34,29 +34,35 @@ Rails.application.routes.draw do
 # 12/14種坂　下記、namespace実装で不要になるかもしれません
 # また、新規登録画面のみの記載です。ログイン、ログアウトはなぜか指定せずとも動きました。
   # get 'customers/sign_up' => 'customers/registrations#new'
-  # 利用者namespace
-  devise_for :customers, controllers: {
-  sessions:      'customers/sessions',
-  passwords:     'customers/passwords',
-  registrations: 'customers/registrations'
-}
-# 下記resources :customers, only:[:show, :edit, :update]はdevise_for :customersより下に記載をお願い致します。12/17タネサカ
-namespace :public do
-resources :customers, only:[:show, :edit, :update] do
-    member do
-            get "unsubscribe"
-            #ユーザーの会員状況を取得
-            patch "withdrawl"
-            #ユーザーの会員状況を更新
-        end
-      end
+
+  scope module: :public do
+   get '/customers/my_page' => 'customers#show'
+   get '/customers/edit' => 'customers#edit'
+   patch '/customers' => 'customers#update'
+     # resources :customers, only:[] do
+     # member do
+     # memberはurlにidを含む(resources)
+     # collectionはidを含まない(resource)みたいなもの
+         get "customers/unsubscribe" => 'customers#unsubscribe'
+         #ユーザーの会員状況を取得
+         patch "customers/withdrawl" => 'customers#withdrawl'
+         #ユーザーの会員状況を更新
+         # end
+       # end
+     # end
+   devise_for :customers,  controllers: {
+   sessions:      'public/sessions',
+   passwords:     'public/passwords',
+   registrations: 'public/registrations'
+ }
+
 # タネサカ仮ルーティング12/18
-resources :cart_items, only:[:index, :create, :update, :destroy, :edit] do
+resources :cart_items, only:[:index, :create, :update, :destroy] do
     collection do
     delete 'destroy_all'
     end
   end
-end
+ end
 
   # 配送先
   scope module: :public do
