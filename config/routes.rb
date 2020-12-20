@@ -32,29 +32,11 @@ Rails.application.routes.draw do
 # また、新規登録画面のみの記載です。ログイン、ログアウトはなぜか指定せずとも動きました。
   # get 'customers/sign_up' => 'customers/registrations#new'
 
-#   controllers: {
-#   sessions:      'public/sessions',
-#   passwords:     'public/passwords',
-#   registrations: 'public/registrations'
-# }
-
 # 下記resources :customers, only:[:show, :edit, :update]はdevise_for :customersより下に記載をお願い致します。12/17タネサカ
 scope module: :public do
-  devise_for :customers, skip: :registrations
-  # skip URL飛ばし
-  devise_scope :customers do
-  # devise_scope 飛ばしたURLから使用するものを記述
-    get 'customers/sign_up' => 'registrations#new'
-    get 'customers/edit/pass' => 'registrations#edit'
-    # 下記editとURLが一緒な為変更
-    post 'customers' => 'registrations#create'
-  end
-
   get '/customers/my_page' => 'customers#show'
   get '/customers/edit' => 'customers#edit'
   patch '/customers' => 'customers#update'
-  # put '/customers' => 'customers#update'
-    # resources :customers, only:[] do
     # member do
     # memberはurlにidを含む(resources)
     # collectionはidを含まない(resource)みたいなもの
@@ -62,8 +44,21 @@ scope module: :public do
         #ユーザーの会員状況を取得
         patch "customers/withdrawl" => 'customers#withdrawl'
         #ユーザーの会員状況を更新
-        # end
-      # end
+    # end
+  devise_for :customers,  controllers: {
+  sessions:      'public/sessions',
+  passwords:     'public/passwords',
+  registrations: 'public/registrations'
+}
+  # skip URL飛ばし
+  # devise_scope :customers do
+  # # devise_scope 飛ばしたURLから使用するものを記述
+  #   get 'customers/sign_up' => 'registrations#new', as: :new_customer_registration
+  #   get 'customers/edit/pass' => 'registrations#edit'
+  #   # 下記editとURLが一緒な為変更
+  #   post 'customers' => 'registrations#create'
+  # end
+
 end
 
   # 配送先

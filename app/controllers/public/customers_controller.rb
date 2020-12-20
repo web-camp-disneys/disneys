@@ -19,12 +19,14 @@ class Public::CustomersController < ApplicationController
 
 
  def unsubscribe
-    @customer = Customer.find(params[:id])
+    # @customer = Customer.find(params[:id])
     #ユーザーの情報を見つける
+    @customer = current_customer
  end
 
 def withdrawl
-    @customer = Customer.find(current_customer.id)
+    # @customer = Customer.find(current_customer.id)
+    @customer = current_customer
     #現在ログインしているユーザーを@customerに格納
     @customer.update(is_deleted: "Invalid")
     #updateで登録情報をtrueに変更
