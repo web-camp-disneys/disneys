@@ -1,2 +1,13 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<p><%= link_to "情報入力に進む", new_public_order_path %></p>
+
+・情報入力画面
+<h1>注文情報入力ページ</h1>
+<%= form_with model:@order, url: new_public_order_path, method: :post, local:true do |f| %>
+
+<%= f.hidden_field :customer_id, value: current_customer.id %>
+<%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.number_field :amount,value:1, min:1, max:10 %>
+
+  <%= f.submit 'カートに追加' %>
+<% end %><p>支払い方法</p>
+<p>お届け先</p>
