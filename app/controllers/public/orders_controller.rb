@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
+    @order = Order.new
   end
 
   def create
@@ -17,5 +18,9 @@ class Public::OrdersController < ApplicationController
   def complete
   end
   
+   private
+  def cart_item_params
+    params.require(:order).permit(:payment_method, :shipping_cost, :total_payment, :status, :name, :address , :postal_code )
+  end
   
 end

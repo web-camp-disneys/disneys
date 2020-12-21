@@ -5,23 +5,17 @@
 <!--送料-->
 <%= f.hidden_field :shipping_cost, value: 800 %>
 <!--請求額-->
-<%= f.hidden_field :total_payment, value:@total += shipping_cost  %>
+<%#= f.hidden_field :total_payment, value:@total += shipping_cost  %>
+<!--注文ステータス-->
+<%= f.hidden_field :status, value: 0 %>
 <!--支払方法-->
+<p>支払い方法</p>
 <%= f.label :payment_method, 'クレジットカード', value: 1 %>
 <%= f.radio_button :payment_method, '1' %>
-<%= f.label :receive_news, '銀行振込', value: 0 %>
+<%= f.label :payment_method, '銀行振込', value: 0 %>
 <%= f.radio_button :payment_method, '0' %>
-<!--注文ステータス-->
-<%= f.hidden_field :shipping_cost, value: 0 %>
-<!--注文時の納品住所-->
 
-<!--注文時の郵便番号-->
-<!--注文時の納品先氏名-->
-
-
-<%= f.hidden_field :item_id, value: @item.id %>
-  <%= f.number_field :amount,value:1, min:1, max:10 %>
-<p>支払い方法</p>
+<!--注文時の納品住所,注文時の郵便番号,注文時の納品先氏名-->
 <p>お届け先</p>
-  <%= f.submit 'カートに追加' %>
+<%= f.submit 'カートに追加' %>
 <% end %>
