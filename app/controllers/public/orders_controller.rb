@@ -7,30 +7,26 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.save
-    flash[:notice] = "ご注文が確定しました。"
-    redirect_to complete_orders_path
-
-    # もし情報入力でnew_addressの場合ShippingAddressに保存
-    if params[:shipping_address == "2"
+    redirect_to complete_public_orders_path
+    
+    if params[:shipping_address] == "0"
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = "#{current_customer.last_name} #{current_customer.first_name}"
+    end
+    
+    if params[:shipping_address] == "1"
+      @order.postal_code = current_customer.address.postal_code
+      @order.address = current_customer.address
+      @order.name = "#{current_customer.last_name} #{current_customer.first_name}"
+    end
+    
+    
+    if params[:shipping_address] == "2"
       @address = Address.new(address_params)
       @address.customer_id = current_customer.id
       @address.save
     end
-
-    # カート商品の情報を注文商品に移動
-    @cart_items = current_cart
-    @cart_items.each do |cart_item|
-    OrderDetail.create(
-      product:  cart_item.product,
-      order:    @order,
-      quantity: cart_item.quantity,
-      subprice: sub_price(cart_item)
-    )
-    end
-    # 注文完了後、カート商品を空にする
-    @cart_items.destroy_all
-	end
-	
   end
 
   def show
