@@ -1,7 +1,8 @@
 <h1>マイページ</h1>
 
 <h1><%="#{@customer.last_name} #{@customer.first_name}"%> さん</h1>
-
+<p><%= link_to "プロフィール編集", edit_public_customer_path(@customer) %></p>
+<p><%= link_to "パスワードを変更する", edit_customer_registration_path(@customer) %></p>
 <table class="table table-hover table-inverse">
 
       <tbody>
@@ -47,6 +48,6 @@
 
       </tbody>
 </table>
+<p><%= link_to "配送先", addresses_path  %></p>
+<p><%= link_to "注文一覧", addresses_path %></p>
 
-<p><%= link_to "プロフィール編集", edit_public_customer_path(@customer) %></p>
-<p><%= link_to "パスワードを変更する", edit_customer_registration_path(@customer) %></p>
