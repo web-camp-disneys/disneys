@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
+    #@total_payment = current_customer.cart_item.total
   end
 
   def create
