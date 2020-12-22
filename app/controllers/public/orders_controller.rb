@@ -23,7 +23,8 @@ class Public::OrdersController < ApplicationController
       @order.name = "#{current_customer.last_name} #{current_customer.first_name}"
     # 登録済み住所から選択した場合
     elsif params[:order][:shipping_address] == "1"
-      @chosen_address = Address.find_by(params[:order][:address_id])
+      # 12/23タネサカ下記find_byをfindへ変更
+      @chosen_address = Address.find(params[:order][:address_id])
       @order.postal_code = @chosen_address.postal_code
       @order.address = @chosen_address.address
       @order.name = @chosen_address.name
@@ -53,9 +54,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
   def complete
