@@ -1,27 +1,32 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customer = Customer.find(params[:id])
+    # @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    # @customer = Customer.find(params[:id])
+     @customer = current_customer
   end
 
 
  def update
-    @customer = Customer.find(params[:id])
+    # @customer = Customer.find(params[:id])
+     @customer = current_customer
     @customer.update(customer_params)
-    redirect_to public_customer_path(@customer.id)
+    redirect_to  customers_my_page_path(@customer)
  end
 
 
  def unsubscribe
-    @customer = Customer.find(params[:id])
+    # @customer = Customer.find(params[:id])
     #ユーザーの情報を見つける
+     @customer = current_customer
  end
 
 def withdrawl
-    @customer = Customer.find(current_customer.id)
+    # @customer = Customer.find(current_customer.id)
+     @customer = current_customer
     #現在ログインしているユーザーを@customerに格納
     @customer.update(is_deleted: "Invalid")
     #updateで登録情報をtrueに変更

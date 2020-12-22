@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-    belongs_to :customer
+  belongs_to :customer
     
     # public/order/newでプルダウンの表示に使用
   def view_for_shipping_address
