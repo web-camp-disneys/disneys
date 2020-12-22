@@ -16,7 +16,7 @@ class Public::CartItemsController < ApplicationController
        @cart_item.save
        redirect_to cart_items_path
      else
-       redirect_to public_item_path(@cart_item.item.id)
+       redirect_to item_path(@cart_item.item.id)
      end
   end
 
@@ -27,13 +27,13 @@ class Public::CartItemsController < ApplicationController
  def update
    @cart_item = CartItem.find(params[:id])
    @cart_item.update(cart_item_params)
-   redirect_to public_cart_items_path
+   redirect_to cart_items_path
  end
 
  def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
-    redirect_to public_cart_items_path
+    redirect_to cart_items_path
  end
 
  	def destroy_all

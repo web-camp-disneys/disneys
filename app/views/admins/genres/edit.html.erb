@@ -1,8 +1,8 @@
-<h1>ジャンル編集</h1>
+<h3 style="margin:45px 0 70px 170px;"><span class="alert-dark pl-3 pr-3">ジャンル編集</span></h3>
 <!-- form_with部分 -->
 <%= form_with model: @genre, url: admins_genre_path, local: true do |f| %>
-  <h4>ジャンル</h4>
+  <h4 style="margin:0 0 70px 80px;">ジャンル<span style="margin-left:20px;"></span>
   <%= f.text_field :name %>
   <%= f.select :is_active ,[['有効',true],['無効',false]] %>
-  <%= f.submit '保存' %>
+  <span style="margin-left:20px;"></span><%= f.submit '変更を保存する', class:"btn btn-primary" %></h4>
 <% end %>
