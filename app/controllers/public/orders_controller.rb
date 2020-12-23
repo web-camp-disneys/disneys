@@ -4,9 +4,9 @@ class Public::OrdersController < ApplicationController
     # 登録済み住所選択プルダンに使用
     @addresses = Address.where(customer: current_customer)
     # 新規入力住所に使用
-    @new_address = @order.address
-    @new_postal_code = @order.postal_code
-    @new_name = @order.name
+    # @new_address = @order.address
+    # @new_postal_code = @order.postal_code
+    # @new_name = @order.name
   end
 
 
