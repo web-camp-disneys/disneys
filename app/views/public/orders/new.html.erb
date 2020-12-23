@@ -4,7 +4,7 @@
 
 <!--支払方法-->
 <p>支払い方法</p>
-<%= f.radio_button :payment_method, '0' %>
+<%= f.radio_button :payment_method, '0', checked: true %>
 <%= f.label :payment_method, 'クレジットカード', value: 0 %><br>
 <%= f.radio_button :payment_method, '1' %>
 <%= f.label :payment_method, '銀行振込', value: 1 %>
@@ -12,7 +12,7 @@
 
 <!--注文時の納品住所,注文時の郵便番号,注文時の納品先氏名-->
 <p>お届け先</p>
-<%= f.radio_button :shipping_address, '0'  %>
+<%= f.radio_button :shipping_address, '0', checked: true %>
 <%= f.label :shipping_address, 'ご自身の住所', value: 0 %><br>
 <%= "#{current_customer.postal_code}  #{current_customer.address}" %><br>
 <%= "#{current_customer.last_name} #{current_customer.first_name}" %>

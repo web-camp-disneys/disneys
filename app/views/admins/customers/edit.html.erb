@@ -2,43 +2,38 @@
   <%="#{@customer.last_name} #{@customer.first_name}"%>さんの会員情報編集
 </span></h3>
 <%= form_with model:@customer, url: admins_customer_path(@customer.id), method: :patch, local:true do |f| %>
+
 <div style="margin-left:140px;">
+    <p>
+        会員ID<span style="margin-right:110px;"></span>
+        <%= @customer.id %>
+    </p>
+    <p>
+        氏名<span style="margin-right:110px;"></span>
+        <%= f.text_field :last_name, :size => "15*15" %><span style="margin-right:20px;"></span><%= f.text_field :first_name, :size => "15*15" %>
+    </p>
+    <p>
+        フリガナ<span style="margin-right:78px;"></span>
+        <%= f.text_field :last_name_kana, :size => "15*15" %><span style="margin-right:20px;"></span><%= f.text_field :first_name_kana, :size => "15*15" %>
+    </p>
+    <p>
+        郵便番号<span style="margin-right:78px;"></span>
+        <%= f.text_field :postal_code, :size => "15*15" %>
+    </p>
+    <p>
+        住所<span style="margin-right:110px;"></span>
+        <%= f.text_field :address, :size => "51*51" %>
+    </p>
+    <p>
+        電話番号<span style="margin-right:78px;"></span>
+        <%= f.text_field :telephone_number, :size => "22*22" %>
+    </p>
+    <p>
+        メールアドレス<span style="margin-right:32px;"></span>
+        <%= f.text_field :email, :size => "22*22" %>
+    </p>
+    <p style="margin-top:30px;">会員ステータス</p>
+    <p style="margin-top:40px;"><%= f.submit '変更を保存する', class:"btn btn-primary" %></p>
 
-          <p>
-              会員ID<span style="margin-right:110px;"></span>
-              <%= @customer.id %>
-          </p>
-          <p>
-              氏名<span style="margin-right:110px;"></span>
-              <%= f.text_field :last_name, :size => "15*15" %> <%= f.text_field :first_name, :size => "15*15" %>
-          </p>
-          <p>
-              フリガナ<span style="margin-right:110px;"></span>
-              <%= f.text_field :last_name_kana, :size => "15*15" %> <%= f.text_field :first_name_kana, :size => "15*15" %>
-          </p>
-          <p>
-              郵便番号<span style="margin-right:110px;"></span>
-              <%= f.text_field :postal_code, :size => "15*15" %>
-          </p>
-          <p>
-              住所<span style="margin-right:110px;"></span>
-              <%= f.text_field :address, :size => "51*51" %>
-          </p>
-          <p>
-              電話番号<span style="margin-right:110px;"></span>
-              <%= f.text_field :telephone_number, :size => "22*22" %>
-          </p>
-          <p>
-              メールアドレス<span style="margin-right:110px;"></span>
-              <%= f.text_field :email, :size => "22*22" %>
-          </p>
-           <p>
-              会員ステータス
-
-          </p>
-          <p>
-              <%= f.submit '変更を保存する', class:"btn btn-primary" %>
-          </p>
-      </tbody>
-</table>
+</div>
 <% end %>
