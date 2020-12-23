@@ -1,5 +1,5 @@
 <h1><%= @genre.name %>一覧ページ</h1>
-<h3><%= @genre.name %>一覧（全<%= items.count %>件）</h3>
+<h3><%= @genre.name %>一覧（全<%= @genre.items.count %>件）</h3>
 
 <% @genre.items.each do |item| %>
 <div class="products">
