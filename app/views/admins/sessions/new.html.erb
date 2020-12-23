@@ -1,13 +1,13 @@
-<h5 style="margin:80px 0 20px 240px;"><span class="alert-dark pl-3 pr-3">管理者ログイン</span></h5>
+<h5 style="margin:80px 0 40px 300px;"><span class="alert-dark pl-3 pr-3">管理者ログイン</span></h5>
 
 <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
   <div class="field">
-    <p style="margin-left:300px;"><%= f.label :メールアドレス %><span style="margin-right:30px;"></span>
+    <p style="margin-left:380px;"><%= f.label :メールアドレス %><span style="margin-right:30px;"></span>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", :size => "50*50" %></p>
   </div>
 
   <div class="field">
-    <p style="margin-left:330px;"><%= f.label :パスワード %><span style="margin-right:30px;"></span>
+    <p style="margin-left:410px;"><%= f.label :パスワード %><span style="margin-right:30px;"></span>
     <%= f.password_field :password, autocomplete: "current-password", :size => "50*50" %></p>
   </div>
 
@@ -19,7 +19,7 @@
   <!--% end %>-->
 
   <div class="actions">
-    <p style="margin-left:550px;"><%= f.submit "ログイン", class:"btn btn-primary btn-lg  pl-5 pr-5 mt-4" %></p>
+    <p style="margin-left:600px;"><%= f.submit "ログイン", class:"btn btn-primary btn-lg  pl-5 pr-5 mt-4" %></p>
   </div>
 <% end %>
 
