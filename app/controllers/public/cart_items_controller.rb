@@ -3,6 +3,7 @@ class Public::CartItemsController < ApplicationController
   def create
      @cart_item = CartItem.new(cart_item_params)
      if @cart_item.amount.present?
+      # present? 存在すればtrue
    # すでにカートにある商品を追加した場合、数量表示のみを変更する
        @cart_items = current_customer.cart_items.all
        @cart_items.each do |cart_item|
@@ -12,11 +13,11 @@ class Public::CartItemsController < ApplicationController
            @cart_item.delete
          end
        end
-# ここまで
+   # ここまで
        @cart_item.save
        redirect_to cart_items_path
      else
-       redirect_to public_item_path(@cart_item.item.id)
+       redirect_to item_path(@cart_item.item.id)
      end
   end
 
