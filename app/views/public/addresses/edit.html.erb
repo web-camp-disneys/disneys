@@ -1,5 +1,7 @@
 <h4 style="margin:40px 150px;"><span class="alert-dark pl-3 pr-3">配送先編集</span></h4>
 <div style="margin-left:80px;">
+
+<%= render "layouts/error_messages", resource: @address %>
   <%= form_with model:@address, url: address_path, local:true do |f| %>
     <label style="margin-right:20px;">郵便番号(ハイフンなし)</label>
     <%= f.text_field :postal_code, :size => "30*30" %>

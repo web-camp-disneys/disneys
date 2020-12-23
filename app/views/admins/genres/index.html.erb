@@ -1,5 +1,7 @@
 <!--ジャンル新規投稿-->
+
 <h3 style="margin:45px 0 70px 170px;"><span class="alert-dark pl-3 pr-3">ジャンル一覧 / 追加</span></h3>
+<%= render "layouts/error_messages", resource: @genre %>
 <%= form_with model: @genre, url: admins_genres_path, local:true do |f| %>
   <h4 style="margin:0 0 70px 80px;">ジャンル<span style="margin-left:20px;"></span>
   <%= f.text_field :name %>
