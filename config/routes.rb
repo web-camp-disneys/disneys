@@ -86,7 +86,7 @@ namespace :admins do
 end
 
 namespace :admins do 
-  resouce :order_detais, only[:update]
+    resources :order_detais, only:[:update]
 end
 
 end
