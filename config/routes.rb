@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   namespace :public do
     resources :items, only:[:index,  :show]
   end
@@ -80,6 +81,12 @@ resources :cart_items, only:[:index, :create, :update, :destroy] do
     end
   end  
 
+namespace :admins do
+    resources :orders, only:[:index, :show, :update]
+end
 
+namespace :admins do 
+  resouce :order_detais, only[:update]
+end
 
 end
