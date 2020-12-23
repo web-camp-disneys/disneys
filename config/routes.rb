@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  
+
+
   namespace :public do
     resources :items, only:[:index,  :show]
   end
@@ -17,6 +17,14 @@ Rails.application.routes.draw do
   # 管理者が見る利用者情報
   namespace :admins do
     resources :customers, only:[:index, :show, :edit, :update]
+  end
+
+  namespace :admins do
+    resources :orders, only:[:index, :show, :update]
+  end
+
+  namespace :admins do
+    resources :order_detais, only:[:update]
   end
 
   get 'admin' => 'admins/homes#top'
@@ -79,14 +87,6 @@ resources :cart_items, only:[:index, :create, :update, :destroy] do
         get :confirm
       end
     end
-  end  
-
-namespace :admins do
-    resources :orders, only:[:index, :show, :update]
-end
-
-namespace :admins do 
-    resources :order_detais, only:[:update]
-end
+  end
 
 end
