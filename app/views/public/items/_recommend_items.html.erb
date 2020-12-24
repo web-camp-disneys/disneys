@@ -1,10 +1,17 @@
 
 <% items.last(4).each do |item| %>
 <div class="col-md-3 card center ">
-<%= attachment_image_tag(item, :image, size: "250x150", fallback: "no_image.jpg") %><br>
+<div class="mt-3">
+    <%= attachment_image_tag(item, :image, size: "250x150", fallback: "no_image.jpg") %>
+</div>
+<br>
 <div class="card-body">
-    <h6 class="card-title"><%= item.name %></h6>
-    <p class="card-text"><%= item.price %></p>
+    <h6 class="card-title">
+        <%= link_to public_item_path(item.id) do %>
+            <%= item.name %>
+        <% end%>        
+    </h6>
+    <p class="card-text"><%= "#{item.price}円" %></p>
 </div>
 </div>
 <% end %>

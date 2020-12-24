@@ -9,7 +9,7 @@
     <p>商品説明</p>
     <%= f.text_area :introduction %>
     <p>ジャンル</p>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name  %>
+    <%= f.collection_select :genre_id, Genre.all.where(is_active: true), :id, :name  %>
     <p>税抜価格</p>
     <%= f.number_field :price %>
     <p>販売ステータス</p>

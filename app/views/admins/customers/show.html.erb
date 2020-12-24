@@ -36,6 +36,13 @@
           メールアドレス<span style="margin-right:88px;"></span>
           <%= @customer.email %>
       <p>
+      
+      <p>
+          会員ステータス<span style="margin-right:88px;"></span>
+          <%= @customer.is_deleted %>
+      <p>
+      
+
       <p style="margin-top:30px;"><%= link_to "編集する", edit_admins_customer_path(@customer.id), class:"btn btn-primary active pl-3 pr-3" %><span style="margin-right:20px;"></span>
         <%= link_to "注文履歴一覧を見る", admins_customers_path, class:"btn btn-primary active pl-3 pr-3" %>
       </p>
