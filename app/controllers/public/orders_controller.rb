@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
     # @new_postal_code = @order.postal_code
     # @new_name = @order.name
     else
-    redirect_to cart_items_path,flash:{notice:'カートに商品が入っていません。'}
+    redirect_to cart_items_path,flash:{alert:'カートに商品が入っていません。'}
     end
   end
 
