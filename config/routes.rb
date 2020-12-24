@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   namespace :public do
     resources :items, only:[:index,  :show]
   end
@@ -71,14 +71,14 @@ resources :cart_items, only:[:index, :create, :update, :destroy] do
     resources :addresses, only:[:index, :create, :edit, :update, :destroy]
   end
 
-  namespace :public do
+  scope module: :public do
     resources :orders, only:[:index, :new, :show, :create] do
       collection  do
         get :complete
         get :confirm
       end
     end
-  end  
+  end
 
 
 

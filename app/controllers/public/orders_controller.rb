@@ -1,5 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
+    @cart_items = current_customer.cart_items
+    if @cart_items.present?
     @order = Order.new
     # 登録済み住所選択プルダンに使用
     @addresses = Address.where(customer: current_customer)
@@ -7,6 +9,9 @@ class Public::OrdersController < ApplicationController
     # @new_address = @order.address
     # @new_postal_code = @order.postal_code
     # @new_name = @order.name
+    else
+    redirect_to cart_items_path,flash:{notice:'カートに商品が入っていません。'}
+    end
   end
 
 
@@ -33,6 +38,15 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:new_postal_code]
       @order.address = params[:order][:new_address]
       @order.name = params[:order][:new_name]
+
+      # 郵便番号、住所、氏名がどれかでも抜けていればrenderする条件式12/24タネサカ
+      unless
+        @order.postal_code.present? & @order.address.present? & @order.address.present?
+        @addresses = Address.where(customer: current_customer)
+        flash.now[:alert] = "お届け先が入力されていませんでした。再度支払方法からご入力ください。"
+        render "new"
+      end
+
     end
 
   end
@@ -50,7 +64,7 @@ class Public::OrdersController < ApplicationController
         @order_details.save
      end
    current_customer.cart_items.destroy_all
-   redirect_to  complete_public_orders_path
+   redirect_to  complete_orders_path
   end
 
   def index
