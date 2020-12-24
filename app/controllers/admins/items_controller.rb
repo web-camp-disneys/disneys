@@ -6,7 +6,7 @@ class Admins::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to admins_items_path,flash:{notice:'新規商品の登録に成功しました。'}
+      redirect_to admins_items_path,flash:{notice:'新規商品を登録しました。'}
     else
       render "new"
     end
@@ -28,7 +28,7 @@ class Admins::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to admins_item_path,flash:{notice:'商品の変更に成功しました。'}
+      redirect_to admins_items_path,flash:{notice:'商品を変更しました。'}
     else
       render "edit"
     end

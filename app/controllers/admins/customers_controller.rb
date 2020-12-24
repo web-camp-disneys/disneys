@@ -15,8 +15,7 @@ class Admins::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to admins_customer_path(@customer.id),
-      flash:{notice:'You have updated customer info successfully.'}
+      redirect_to admins_customer_path(@customer.id),flash:{notice:'登録情報を編集しました。'}
     else
       render 'edit'
     end
