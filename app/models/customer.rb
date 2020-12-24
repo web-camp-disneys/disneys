@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
     def active_for_authentication?
         super && (self.is_deleted === "Available")
+        # 退会したらログインできないようにしている
     end
 
   # Include default devise modules. Others available are:
