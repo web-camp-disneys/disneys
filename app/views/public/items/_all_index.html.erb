@@ -1,9 +1,6 @@
-<div class="col-md-8">
-    <h1>全商品一覧ページ</h1>
-    <h3>（全<%= @items_for_index.count %>件）</h3>
 
-    <% @items.each do |item| %>
-    <div class="d-md-inline-block  card text-center">
+<% @items.each do |item| %>
+    <div class="card text-center col-md-3">
         <div class="card-body center">
             <%= attachment_image_tag item, :image, format: 'jpeg', size:"150x100", fallback: "no_image.jpg" %>
             <%= link_to public_item_path(item.id) do %>
@@ -11,8 +8,8 @@
             <% end %>
            <p class="card-text"><%= item.price %></p>
         </div>
-        <% end %>
     </div>
-</div>
+<% end %>
+
 
 <div class="col-md-12 mt-3  text-right"><%= paginate items %></div>
