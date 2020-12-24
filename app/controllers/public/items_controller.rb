@@ -8,12 +8,12 @@ class Public::ItemsController < ApplicationController
     if params[:genre_id].present?
       @genre = Genre.find(params[:genre_id])
       # ジャンル別商品一覧のページネーション用
-      @genres_for_index = @genre.items.all.page(params[:page]).per(8)
+      @genres_for_index = @genre.items.where(is_active: false).page(params[:page]).per(8)
     end
   end
 
   def genre_index
-    @items = Item.all.find(params[:id])
+    @items = Item.where(is_active: false).find(params[:id])
   end
 
   def show
