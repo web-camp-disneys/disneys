@@ -1,18 +1,18 @@
-
-
-
-<div class="col-md-9">
+<div class="col-md-12 text-center">
     <h1><%= @genre.name %>一覧ページ</h1>
-    <h3><%= @genre.name %>一覧（全<%= @genre.items.count %>件）</h3>
+    <h3>（全<%= @genre.items.count %>件）</h3>
 </div>
-    <%items.each do |item| %>
-        <div class="products">
-            <%= attachment_image_tag item, :image, format: 'jpeg', size:"200x200", fallback: "no_image.jpg" %>
-            <%= link_to public_item_path(item.id) do %>
-                <%= item.name %>
-            <% end %>
-            <%= item.price %>
-        </div>
-    <% end %>
 
-<%= paginate items %>
+
+<% items.each do |item| %>
+    <div class="card text-center col-md-3">
+        <div class="card-body center">
+            <%= attachment_image_tag item, :image, format: 'jpeg', size:"150x100", fallback: "no_image.jpg" %>
+            <%= link_to public_item_path(item.id) do %>
+                <h6 class="card-title"><%= item.name %></h6>
+            <% end %>
+           <p class="card-text"><%= "#{item.price}円" %></p>
+        </div>
+    </div>
+<% end %>
+<div class="col-md-12 mt-3"><%= paginate items %></div>

@@ -1,13 +1,13 @@
-<!--ジャンル一覧-->
-<!--<div class="container">-->
-  <div class="row">
+
+<div class="container">
+  <div class="row mt-5">
     
       <div class="col-md-2 col-md-offset-1">
         <%= render 'public/items/genre_table', genres: @genres %>
       </div>
       
       <div class="col-md-9">
-        <div class="row">
+        <div class="row text-center">
           <% if @genre.present?  %>
             <%= render 'genre_index', items: @genres_for_index  %>
           <% else %>
@@ -17,5 +17,5 @@
       </div>
     
    </div> 
-<!--</div>-->
+</div>
 

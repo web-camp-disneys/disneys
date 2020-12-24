@@ -1,5 +1,5 @@
-<div class="container mt-10">
-    <div class="row">
+<div class="container">
+    <div class="row mt-5">
         <div class="col-md-3">
             <!--ジャンル一覧-->
             <%= render 'public/items/genre_table', genres: @genres %>
@@ -14,25 +14,25 @@
             <table class="table table-borderless text-center">
                 <tbody>
                     <tr>
-                        <td><%= @item.name %></td>
+                        <td><h3><%= @item.name %></h3></td>
                     </tr>
                     <tr>
                         <td><%= @item.introduction %></td>
                     </tr>
             
                     <tr>
-                        <td><h3><%= @item.price %></h3>（税込）</td>
+                        <td><h3><%= "#{@item.price}円" %></h3>（税込）</td>
                     </tr>
                     
                     <tr>
                         <td>
-                        <!--12/18タネサカ追記-->
-                        <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
-                        <%= f.hidden_field :customer_id, value: current_customer.id %>
-                        <%= f.hidden_field :item_id, value: @item.id %>
-                          <%= f.number_field :amount,value:1, min:1, max:10 %>
-                          <%= f.submit 'カートに追加' %>
-                        <% end %>
+                            <!--12/18タネサカ追記-->
+                            <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
+                            <%= f.hidden_field :customer_id, value: current_customer.id %>
+                            <%= f.hidden_field :item_id, value: @item.id %>
+                              <%= f.number_field :amount,value:1, min:1, max:10 %>
+                              <%= f.submit 'カートに追加' , {class:"btn btn-success"}  %>
+                            <% end %>
                         </td>
                     </tr>
                     
