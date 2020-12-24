@@ -17,7 +17,7 @@ class Public::CartItemsController < ApplicationController
        @cart_item.save
        redirect_to cart_items_path
      else
-       redirect_to public_item_path(@cart_item.item.id), notice: "数量を入力してください"
+      redirect_to public_item_path(@cart_item.item.id), alert: "数量を入力してください"
      end
   end
 
@@ -30,7 +30,7 @@ class Public::CartItemsController < ApplicationController
    if @cart_item.update(cart_item_params)
    redirect_to cart_items_path
    else
-   redirect_to cart_items_path, notice: "数量を入力してください"
+   redirect_to cart_items_path, alert: "数量を入力してください"
    end
  end
 

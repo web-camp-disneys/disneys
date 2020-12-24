@@ -3,9 +3,11 @@ class Customer < ApplicationRecord
   enum is_deleted: {Available: false, Invalid: true}
     #有効会員はfalse、退会済み会員はtrue
   validates :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email, :is_deleted, presence: true
+  # validates :is_deleted, inclusion: { in: [true, false] }
 
     def active_for_authentication?
         super && (self.is_deleted === "Available")
+        # 退会したらログインできないようにしている
     end
 
   # Include default devise modules. Others available are:
