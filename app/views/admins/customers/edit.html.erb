@@ -1,6 +1,7 @@
 <h3 style="margin:45px 0 50px 140px;"><span class="alert-dark pl-3 pr-3">
   <%="#{@customer.last_name} #{@customer.first_name}"%>さんの会員情報編集
 </span></h3>
+<%= render "layouts/error_messages", resource: @customer %>
 <%= form_with model:@customer, url: admins_customer_path(@customer.id), method: :patch, local:true do |f| %>
 
 <div style="margin-left:140px;">

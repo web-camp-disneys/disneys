@@ -1,20 +1,26 @@
 <h3 class="title"><span class="alert-dark pl-3 pr-3">商品新規登録</span></h3>
 <div class="container">
+    <%= form_with model:@item, url: admins_items_path, method: :post, local:true do |f| %>
     <div class="row">
 
-            <div class="image col-lg-4">
-                <%= form_with model:@item, url: admins_items_path, method: :new, local:true do |f| %>
+            <div class="newimage col-md-4">
                 <%= f.attachment_field :image %>
             </div>
 
-            <div class="col-lg-8">
-                <p>商品名<%= f.text_field :name %></p>
-                <div style="display: inline-block;">商品説明</div><div style="display:inline-block; vertical-align: top;"><%= f.text_area :introduction %></div>
-                <p>ジャンル<span style="margin-right:10px;"></span><%= f.collection_select :genre_id, Genre.all, :id, :name  %></p>
-                <p>税抜価格<%= f.number_field :price %></p>
-                <p>販売ステータス<%= f.select :is_active, [['販売中',0],['販売停止',1]],{ include_blank: true, selected: 0 } %></p>
+            <div class="col-md-7">
+                <p><span class="name marbo">商品名</span><%= f.text_field :name, :size => "31*31" %></p>
+
+                <p class="display setu">商品説明</p><p class="newexplanation display"><%= f.text_area :introduction, :size => "30*30" %></p>
+
+                <p class="marbo">ジャンル<span class="jan"></span><%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: '--選択してください--  ' } %></p>
+
+                <p class="marbo">税抜価格<span class="kaka"></span><%= f.number_field :price %><span>  円</span></p>
+
+                <p class="marbo">販売<span class="han"></span><%= f.select :is_active, [['販売中',0],['販売停止',1]],{ include_blank: true, selected: 0 } %><br>ステータス</p>
             </div>
-                <%= f.submit '新規登録', class:"btn btn-secondary" %>
-        <% end %>
+            <div class="col-md-1">
+                <div class="bottom"><%= f.submit '新規登録', class:"btn btn-primary pt-3 pb-3 pl-5 pr-5" %></div>
+            </div>
     </div>
+    <% end %>
 </div>

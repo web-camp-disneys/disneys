@@ -1,4 +1,13 @@
-<hi>商品詳細ページ（利用者）</hi>
+<h1>商品詳細ページ（利用者）</h1>
+
+<!--エラーメッセージ風notice-->
+<% if notice.present? %>
+<h3 class="alert alert-danger">
+ <%= notice %>
+</h3>
+<% end %>
+<!--ここまで-->
+
 <table class="table table-bordered genre-table">
     <thead>
       <tr>

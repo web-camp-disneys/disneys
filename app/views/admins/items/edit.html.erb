@@ -1,17 +1,26 @@
-<h1>商品編集ページ</h1>
-<%= form_with model:@item, url: admins_item_path(@item.id), method: :patch, local:true do |f| %>
-    <p>商品写真</p>
-    <%= f.attachment_field :image %>
-    <p>商品名</p>
-    <%= f.text_field :name %>
-    <p>商品説明</p>
-    <%= f.text_area :introduction %>
-    <p>ジャンル</p>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name  %>
-    <p>税抜価格</p>
-    <%= f.number_field :price %>
-    <p>販売ステータス</p>
-    <%= f.select :is_active, [['販売中',0],['販売停止',1]],{ include_blank: true, selected: 0 } %>
-    
-    <%= f.submit '商品編集', class:"btn btn-secondary" %>
-<% end %>
+<h3 class="title"><span class="alert-dark pl-3 pr-3">商品編集</span></h3>
+<div class="container">
+    <%= form_with model:@item, url: admins_item_path(@item.id), method: :patch, local:true do |f| %>
+    <div class="row">
+
+        <div class="newimage col-md-4">
+            <p><%= f.attachment_field :image %></p>
+        </div>
+        <div class="col-md-7">
+            <p><span class="name marbo">商品名</span><%= f.text_field :name, :size => "31*31" %></p>
+
+            <p class="display setu">商品説明</p><p class="newexplanation display"><%= f.text_area :introduction, :size => "30*30" %></p>
+
+            <p class="marbo">ジャンル<span class="jan"></span><%= f.collection_select :genre_id, Genre.all, :id, :name  %></p>
+
+            <p class="marbo">税抜価格<span class="kaka"></span><%= f.number_field :price %> 円</p>
+
+            <p class="marbo">販売<span class="han"></span><%= f.select :is_active, [['販売中',0],['販売停止',1]],{ include_blank: true, selected: 0 } %><br>ステータス</p>
+        </div>
+
+        <div class="col-md-1">
+            <div class="bottom"><%= f.submit '変更を保存', class:"btn btn-primary  pt-3 pb-3 pl-5 pr-5" %></div>
+        </div>
+    </div>
+    <% end %>
+</div>

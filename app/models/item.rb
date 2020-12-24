@@ -1,12 +1,9 @@
 class Item < ApplicationRecord
     attachment :image
+    validates :name, :genre_id, :introduction, :image, :price, presence: true
+    validates :is_active, inclusion: { in: [true, false] }
 
     belongs_to :genre
     has_many :cart_items
-    has_many :order_de
-
-    # 12345678.to_s(:delimited, delimiter: '.')
-    #  # => 12.345.678
-    # 12345678.to_s(:delimited, delimiter: ',')
-    #  # => 12,345,678
+    has_many :order_details
 end
