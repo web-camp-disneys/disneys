@@ -31,7 +31,7 @@ def withdrawl
     # @customer = Customer.find(current_customer.id)
      @customer = current_customer
     #現在ログインしているユーザーを@customerに格納
-    @customer.update(is_deleted: "Invalid")
+    @customer.update(is_deleted: "無効")
     #updateで登録情報をtrueに変更
     reset_session
     #sessionIDのresetを行う
