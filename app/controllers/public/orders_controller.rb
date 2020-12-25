@@ -63,7 +63,18 @@ class Public::OrdersController < ApplicationController
         @order_details.amount = cart_item.amount
         @order_details.save
      end
-   current_customer.cart_items.destroy_all
+    current_customer.cart_items.destroy_all
+   
+    # 新規住所を使用した場合のみお届け先に登録する
+     if params[:order][:shipping_address].present?
+        @address = Address.new
+        @address.customer_id = current_customer.id
+        @address.name = @order.name
+        @address.postal_code = @order.postal_code
+        @address.address = @order.address
+        @address.save
+     end
+     
    redirect_to  complete_orders_path
   end
 
