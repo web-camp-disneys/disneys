@@ -1,6 +1,6 @@
 class Admins::OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    @orders = Order.all.order(id: "DESC")
     # @order_detail = @order.order_detail
   end
 

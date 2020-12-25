@@ -22,6 +22,10 @@
     <%# else %>
 
     <nav class="navbar navbar-light" style="background-color: #000000;">
+     
+      <a class="navbar-brand" style="color: #ffffff;" href="/admin">
+            長野ケーキ
+      </a>
          <ul class="nav pull-right nav-pills ml-auto mt-2 mt-lg-0">
           <% if admin_signed_in? %>
            <li class="nav-item"><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'fas fa-home nav-link text-light' %></li>
