@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
     # @customer = Customer.find(params[:id])
      @customer = current_customer
     if @customer.update(customer_params)
-    redirect_to  customers_my_page_path(@customer)
+    redirect_to  customers_my_page_path(@customer),flash:{notice:'登録情報を編集しました。'}
     else
     render "edit"
     end

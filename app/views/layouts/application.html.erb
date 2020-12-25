@@ -11,10 +11,20 @@
   </head>
 
   <body>
-  
-  <%= render 'layouts/header' %>
-  <%= flash[:notice] %>
 
-    <%= yield %>
+  <%= render 'layouts/header' %>
+
+  <% if notice.present? %>
+<h3 class="alert alert-success">
+  <%= flash[:notice] %>
+  </h3>
+<% end %>
+
+  <% if alert.present? %>
+<h3 class="alert alert-danger">
+  <%= flash[:alert] %>
+  </h3>
+<% end %>
+<%= yield %>
   </body>
 </html>

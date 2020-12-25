@@ -1,0 +1,28 @@
+<div class="container col-md-9 col-xl-9">
+    <h3 class="pt-5 pb-5"><span class="alert-dark pl-3 pr-3">注文履歴一覧</span></h3>
+    <table class="table table-hover table-inverse" style="border-top:1px #C0C0C0 solid; border-bottom:1px #C0C0C0 solid;">
+        <thread>
+            <tr class="table-active">
+              <th style="width:220px; height:45px;">購入日時</th>
+              <th style="width:200px;">購入者</th>
+              <th style="width:180px;">注文個数</th>
+              <th style="width:230px;">注文ステータス</th>
+            </tr>
+        </thread>
+
+        <tbody>
+                <% @orders.each do |order| %>
+            <tr style="height:45px;">
+                    <td><%= link_to admins_order_path(order) do %>
+                        <%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+                        <% end %>
+                    </td>
+                    <td><%= order.name  %></td>
+                    <!--注文者のデータ-->
+                    <td><%= order.order_details.count %></td>
+                    <td><%= order.status %></td>
+            </tr>
+                <% end %>
+        </tbody>
+    </table>
+</div>
