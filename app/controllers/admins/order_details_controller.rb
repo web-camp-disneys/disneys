@@ -2,14 +2,15 @@ class Admins::OrderDetailsController < ApplicationController
 
   def update
     @order_detail = OrderDetail.find(params[:id])
+    @order_detail.update(order_detail_params)
     @order = @order_detail.order
     @order_details = @order.order_details
-    @order_detail.update(order_detail_params)
-    if @order_detail.making_status = 2
+
+     if @order_detail.making_status == "制作中"
       @order_detail.order.update(status: 2)
-    else @order_details.making_status = 3
+     elsif @order_details.where(making_status: "製作完了").count == @order_details.count
       @order_detail.order.update(status: 3)
-    end
+     end
     redirect_to admins_order_path(@order_detail.order)
   end
 

@@ -14,7 +14,7 @@
 
             <p class="marbo">ジャンル<span class="jan"></span><%= f.collection_select :genre_id, Genre.all, :id, :name  %></p>
 
-            <p class="marbo">税抜価格<span class="kaka"></span><%= f.number_field :price %> 円</p>
+            <p class="marbo">税抜価格<span class="kaka"></span><%= f.number_field :price, class: "itemedit" %> 円</p>
 
             <p class="marbo">販売<span class="han"></span><%= f.select :is_active, [['販売中',0],['販売停止',1]],{ include_blank: true, selected: 0 } %><br>ステータス</p>
         </div>
