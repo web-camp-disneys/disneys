@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    resources :order_detais, only:[:update]
+    resources :order_details, only:[:update]
   end
 
   get 'admin' => 'admins/homes#top'
