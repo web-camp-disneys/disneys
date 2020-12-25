@@ -1,6 +1,3 @@
-<h1>商品詳細ページ（利用者）</h1>
-
-
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-3">
@@ -26,24 +23,21 @@
                     <tr>
                         <td><h3><%= "#{@item.price}円" %></h3>（税込）</td>
                     </tr>
-
-                    <tr>
-                        <td>
-                            <!--12/18タネサカ追記-->
-                            <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
-                            <%= f.hidden_field :customer_id, value: current_customer.id %>
-                            <%= f.hidden_field :item_id, value: @item.id %>
-                              <%= f.number_field :amount,value:1, min:1, max:10 %>
-                              <%= f.submit 'カートに追加' , {class:"btn btn-success mt-3"}  %>
-                            <% end %>
-                        </td>
-                    </tr>
-
+                    <% if customer_signed_in? %>
+                        <tr>
+                            <td>
+                                <!--12/18タネサカ追記-->
+                                <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
+                                <%= f.hidden_field :customer_id, value: current_customer.id %>
+                                <%= f.hidden_field :item_id, value: @item.id %>
+                                  <%= f.number_field :amount,value:1, min:1, max:10 %>
+                                  <%= f.submit 'カートに追加' , {class:"btn btn-success mt-3"}  %>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
                 </tbody>
             </table>
         </div>
-
-
-
     </div>
 </div>
