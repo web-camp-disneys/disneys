@@ -19,9 +19,9 @@
           <% end %>
         </td>
         <td><%= customer.email %></td>
-        <td>退会済or有効</td>
+        <td><%= customer.is_deleted %></td>
       </tr>
     <% end %>
   </tbody>
   </table>
-  <!--%= paginate @customers %>-->
+  <%= paginate @customers %>

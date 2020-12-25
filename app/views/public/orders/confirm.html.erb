@@ -57,5 +57,8 @@
 <%= f.hidden_field :shipping_cost, value: 800 %>
 <%= f.hidden_field :total_payment, value: @totalpay %>
 <%= f.hidden_field :payment_method, value: @order.payment_method %>
+<% if params[:order][:shipping_address] == "2" %>
+<%= f.hidden_field :shipping_address, value: params[:order][:shipping_address] %>
+<% end %>
 <%= f.submit '注文を確定する' %>
 <% end %>

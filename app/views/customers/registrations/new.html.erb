@@ -5,14 +5,14 @@
     <%= render "customers/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :last_name, "名前" %><span style="margin:0  14px 0 167px;">(性)</span>
+      <%= f.label :last_name, "名前" %><span style="margin:0  14px 0 167px;">(姓)</span>
       <%= f.text_field :last_name, autofocus: true, :size => "23*23" %>
       <!--%= f.label :first_name, "名前"%>-->
       <span style="margin-right:30px;"></span>(名)<span style="margin-right:23px;"></span><%= f.text_field :first_name, autofocus: true, :size => "23*23"  %>
     </div>
 
     <div class="field">
-      <%= f.label :last_name_kana, "フリガナ" %><span style="margin-left:133px;">(メイ)</span>
+      <%= f.label :last_name_kana, "フリガナ" %><span style="margin-left:133px;">(セイ)</span>
       <%= f.text_field :last_name_kana, autofocus: true, :size => "23*23"  %>
       <!--%= f.label :first_name_kana, "フリガナ　（メイ）" %>-->
       <span style="margin-right:30px;"></span>(メイ)<span style="margin-right:7px;"></span><%= f.text_field :first_name_kana, autofocus: true, :size => "23*23"  %>
