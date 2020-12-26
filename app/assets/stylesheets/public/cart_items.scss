@@ -2,3 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// ページ名
+.sc{
+  margin: 30px 0 30px 15px;
+}
+// ページ名とカートを空にするボタンの余白
+.sc-l{
+  margin-left: 660px;
+}
+// 商品名欄長さ
+.sm{
+  width: 350px;
+}
+.tk{
+  width: 160px;
+}
+.sro{
+  width: 160px;
+}
+// 小計欄長さ
+.sk{
+  width: 140px;
+}
+.mm{
+  width: 160px;
+}
+// 変更ボタン横の余白
+.hb{
+  margin-left: 30px;
+}
+// 商品データの下の余白
+.li{
+  margin-bottom: 40px;
+}
+
+// 買い物を続けるボタンの横並び
+.dis{
+  // display: inline-block;
+  display: flex;
+  margin-bottom: 30px;
+}
+// 合計金額テーブルの長さ
+.gk{
+  width: 200px;
+  margin-left: 760px;
+}
+
+.bobo{
+  margin-left: 430px;
+}

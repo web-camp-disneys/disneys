@@ -4,6 +4,7 @@
     <div class="row">
 
             <div class="item-image col-md-4">
+                <%= attachment_image_tag @item, :image, format: 'jpeg', size:"300x200", fallback: "no_image.jpg" %>
                 <%= f.attachment_field :image %>
             </div>
 

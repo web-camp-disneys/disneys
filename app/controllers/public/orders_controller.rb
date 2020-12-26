@@ -46,9 +46,7 @@ class Public::OrdersController < ApplicationController
         flash.now[:alert] = "お届け先が入力されていませんでした。再度支払方法からご入力ください。"
         render "new"
       end
-
     end
-
   end
 
   def create
@@ -79,8 +77,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @customer = Customer.find(params[:id])
-    @orders = @customer.orders
+    # @customer = Customer.find(params[:id])
+    @orders = current_customer.orders.order(id: "DESC")
+    # 赤文字のorderは順番指定の記述(id)順に並べている
   end
 
   def show
