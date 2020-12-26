@@ -15,21 +15,7 @@
             <div class="col-md-4">
                 <table class="table table-borderless text-center">
                     <tbody>
-                        <tr>
-<<<<<<< HEAD
-                            <td><h3><%= @item.name %></h3></td>
-=======
-                            <td>
-                                <!--12/18タネサカ追記-->
-                                <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
-                                <%= f.hidden_field :customer_id, value: current_customer.id %>
-                                <%= f.hidden_field :item_id, value: @item.id %>
-                                  <%= f.number_field :amount,value:1, min:1, max:10, class: "ss" %>
-                                  <%= f.submit 'カートに追加' , {class:"btn btn-success mt-3"}  %>
-                                <% end %>
-                            </td>
->>>>>>> 3727a42fe294bc2da73019eb1f1a70474850425b
-                        </tr>
+                      
                         <tr>
                             <td><%= @item.introduction %></td>
                         </tr>

@@ -88,8 +88,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
-    # 仮です。本来はうえのIndexへの記載です。
-    @orders = current_customer.orders
   end
 
   private

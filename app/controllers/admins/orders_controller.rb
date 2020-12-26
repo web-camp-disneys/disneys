@@ -7,7 +7,7 @@ class Admins::OrdersController < ApplicationController
       # 赤文字のorderは順番指定の記述(id)順に並べている
     else
       # 違う場合でheaderの注文履歴一覧を表示
-      @orders = Order.where.order(id: "DESC").page(params[:page]).per(10)
+      @orders = Order.all.order(id: "DESC").page(params[:page]).per(10)
       # 赤文字のorderは順番指定の記述(id)順に並べている
     end
   end
