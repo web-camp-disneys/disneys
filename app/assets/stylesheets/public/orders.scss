@@ -53,3 +53,27 @@ select[name="order[address_id]"]{
 .tb{
   margin: 70px 0 0 420px;
 }
+
+// 表示するボタンの中央揃え
+.pp{
+  text-align: center;
+}
+// 黒枠
+.bor{
+  border:2px solid black;
+}
+// index画面の全体的な余白
+.iy{
+  margin-left: 5px;
+}
+// 注文履歴一覧の題名の高さ
+.hei{
+  height: 50px;
+}
+
+// 注文履歴詳細
+
+// 請求情報の余白
+.heig{
+  margin-top: 87px;
+}
