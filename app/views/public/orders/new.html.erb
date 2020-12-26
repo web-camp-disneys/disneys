@@ -1,10 +1,10 @@
+ 
 <div class="container">
-  <div class="row mt-6">
+  
     
+   
     <h2 class="col-md-12 text-center">注文情報入力ページ</h2>
-    <div class="col-md-12">
-     <%= form_with model:@order, url: confirm_orders_path,method: :get, local:true do |f| %>
-    </div>
+    <%= form_with model:@order, url: confirm_orders_path,method: :post, local:true do |f| %>
     <div class="col-md-12 mt-3">
               <!--支払方法-->
               <h3 class="mt-3">支払い方法</h3>
@@ -14,7 +14,7 @@
               <%= f.label :payment_method, '銀行振込', value: 1 %>
     </div>
         <!--注文時の納品住所,注文時の郵便番号,注文時の納品先氏名-->
-        
+    <div class="row">
           <h3 class="col-md-12 mt-5">お届け先</h3>
           <div class="col-md-6 mt-3">
             <h5>
@@ -58,5 +58,5 @@
            </div>
       <% end %>
     </div>
-  </div>
+ </div>   
 </div>
