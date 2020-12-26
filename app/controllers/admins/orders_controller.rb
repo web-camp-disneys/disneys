@@ -1,6 +1,13 @@
 class Admins::OrdersController < ApplicationController
   def index
-    @orders = Order.all.order(id: "DESC")
+    if params[:customer_flag] == "true"
+      # customer_flagがtrueの記述の場合の処理
+      @customer = Customer.find(params[:customer_id])
+      @orders = @customer.orders
+    else
+      # 違う場合でheaderの注文履歴一覧を表示
+      @orders = Order.all.order(id: "DESC")
+    end
     # @order_detail = @order.order_detail
   end
 
