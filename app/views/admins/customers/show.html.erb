@@ -44,7 +44,11 @@
 
 
       <p style="margin-top:30px;"><%= link_to "編集する", edit_admins_customer_path(@customer.id), class:"btn btn-primary active pl-3 pr-3" %><span style="margin-right:20px;"></span>
+<<<<<<< HEAD
         <%= link_to "注文履歴一覧を見る", admins_orders_path(customer_id: @customer.id, customer_flag: true), class:"btn btn-primary active pl-3 pr-3" %>
         <!--どのデータを持ってきて真偽でif文で区切りやす-->
+=======
+        <%= link_to "注文履歴一覧を見る", admins_orders_path, class:"btn btn-primary active pl-3 pr-3" %>
+>>>>>>> 5927a8d898125b1370cb45f749caa0203cf7689f
       </p>
   </div>

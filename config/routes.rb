@@ -82,7 +82,7 @@ resources :cart_items, only:[:index, :create, :update, :destroy] do
     resources :orders, only:[:index, :new, :show, :create] do
       collection  do
         get :complete
-        get :confirm
+        post :confirm
       end
     end
   end
