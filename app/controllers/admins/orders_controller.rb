@@ -3,11 +3,11 @@ class Admins::OrdersController < ApplicationController
     if params[:customer_flag] == "true"
       # customer_flagがtrueの記述の場合の処理
       @customer = Customer.find(params[:customer_id])
-      @orders = @customer.orders.order(id: "DESC")
+      @orders = @customer.orders.order(id: "DESC").page(params[:page]).per(10)
       # 赤文字のorderは順番指定の記述(id)順に並べている
     else
       # 違う場合でheaderの注文履歴一覧を表示
-      @orders = Order.all.order(id: "DESC")
+      @orders = Order.where.order(id: "DESC").page(params[:page]).per(10)
       # 赤文字のorderは順番指定の記述(id)順に並べている
     end
   end
