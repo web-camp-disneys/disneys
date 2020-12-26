@@ -5,10 +5,13 @@
   <h4>配送先<span style="margin-left:150px;"></span><%= "#{@order.postal_code} #{@order.address}" %></h4>
   <h4 style="margin-bottom:30px;"><span style="margin-left:220px;"></span><%= @order.name %></h4>
   <h4 style="margin-bottom:30px;">支払い方法<span style="margin-left:100px;"></span><%= @order.payment_method %></h4>
+
   <h4 style="margin-bottom:70px;">
-    <%= form_with model: @admins_order do |order| %>
-    注文ステータス<span style="margin-left:30px;"></span><%= order.select :status, [["入金待ち", "入金待ち"], ["入金確認", "入金確認"], ["製作中", "製作中"], ["発送準備中", "発送準備中"], ["発送済み", "発送済み"]] %>
-    <span style="margin-left:15px;"></span><%= link_to "更新", admins_order_path(@order), class:"btn btn-primary" %>
+    <%= form_with model:@order, url: admins_order_path, method: :patch, local:true do |f| %>
+
+    注文ステータス<span style="margin-left:30px;"></span><%= f.select :status, Order.statuses.keys %>
+
+    <span style="margin-left:15px;"></span><%= f.submit "更新", class:"btn btn-primary" %>
     <% end %>
   </h4>
 </div>
@@ -28,25 +31,26 @@
         <tbody>
             <% @subtotal = 0 %>
             <% @total = 0 %>
-            <% @order_details.each do |order| %>
+            <% @order_details.each do |order_detail| %>
                 <tr>
                     <td>
-        		        <%= order.item.name %>
+        		        <%= order_detail.item.name %>
                     </td>
                     <td>
-                        <%= order.price %>
+                        <%= order_detail.price %>
                     </td>
                     <td>
-                        <%= order.amount %>
+                        <%= order_detail.amount %>
                     </td>
                     <td>
-                        <%= @subtotal = order.price * order.amount %>
+                        <%= @subtotal = order_detail.price * order_detail.amount %>
                     </td>
                         <% @total += @subtotal %>
                     <td>
-                        <%= form_with model: @admins_order do |order| %>
-                        <%= order.select :status, [["着手不可", "着手不可"], ["製作待ち", "製作待ち"], ["製作中", "製作中"], ["製作完了", "製作完了"]] %>
-                        <span style="margin-right:20px;"></span><%= link_to "更新", admins_order_path(@order), class:"btn btn-primary" %>
+                        <%= form_with model:order_detail, url: admins_order_detail_path(order_detail), method: :patch, local:true do |f| %>
+                      <%= f.select :making_status, OrderDetail.making_statuses.keys %>
+                        <span style="margin-right:20px;"></span>
+                        <%= f.submit "更新", class:"btn btn-primary" %>
                         <% end %>
                     </td>
                 </tr>
