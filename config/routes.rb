@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    resources :orders, only:[:index, :show, :update]
+    resources :orders, only:[:index, :show, :update] do
+     collection  do
+        get :history
+     end
+    end
   end
 
   namespace :admins do
