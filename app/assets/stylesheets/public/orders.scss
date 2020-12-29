@@ -1,0 +1,55 @@
+// Place all the styles related to the public::orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.scs{
+   margin: 30px 0 30px 85px;
+}
+
+.space{
+  margin-left: 50px;
+}
+.sp{
+  margin-left: 80px;
+}
+// 郵便番号横の余白
+.pos{
+  margin-left: 40px;
+  // 住所 宛名横の余白
+}
+.mar{
+  margin-left: 213px;
+}
+
+.bbb{
+  margin: 20px 0 0 450px;
+}
+
+select[name="order[address_id]"]{
+  width: 800px;
+}
+
+.kk{
+  margin-bottom: 25px;
+}
+.yy{
+  margin: 0 0 25px 80px;
+}
+
+// 支払い方法の余白
+.sh{
+  margin: 20px 0 30px 0;
+}
+// お届け先name横の余白
+.na{
+  margin-left: 105px;
+}
+
+// 支払方法　お届け先横の余白
+.ll{
+  margin-right: 20px;
+}
+// 注文を確定するボタンの余白
+.tb{
+  margin: 70px 0 0 420px;
+}

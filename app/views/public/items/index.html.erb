@@ -1,0 +1,21 @@
+
+<div class="container">
+  <div class="row mt-5">
+    
+      <div class="col-md-2 col-md-offset-1">
+        <%= render 'public/items/genre_table', genres: @genres , class:"genre_table" %>
+      </div>
+      
+      <div class="col-md-9">
+        <div class="row text-center">
+          <% if @genre.present?  %>
+            <%= render 'genre_index', items: @genres_for_index  %>
+          <% else %>
+            <%= render 'all_index', items: @items  %>
+          <% end %>
+        </div>
+      </div>
+    
+   </div> 
+</div>
+

@@ -1,0 +1,30 @@
+<h3 class="title"><span class="alert-dark pl-3 pr-3">商品詳細</span></h3>
+<!--<div class="container">-->
+<div class="row">
+        <div class="col-md-3 offset-1">
+            <%= attachment_image_tag @item, :image, format: 'jpeg', size:"250x200", fallback: "no_image.jpg" %>
+        </div>
+
+        <div class="col-md-6">
+            <p class="newmargin"><span class="name">商品名</span><span class="font"><%= @item.name %></span></p>
+
+            <p class="display newmargin">商品説明</p><span style="margin-left:30px;"></span><p class="newexplanation display"><span class="font"><%= @item.introduction %></span></p>
+
+            <p class="newmargin">ジャンル<span style="margin-left:32px;"></span><span class="font"><%= @item.genre.name %></span></p>
+
+            <p class="newmargin">税込価格(税抜価格)<span style="margin-left:30px;"></span>
+                <span class="font">
+                    <% @tax = 1.1 %>
+                    <%= @item.price %>(<%= (@item.price / @tax).round %>) 円
+                </span>
+            </p>
+
+            <p class="newmargin">販売ステータス<span style="margin-left:30px;"></span><%= @item.is_active ? '販売中止':'販売中' %></p>
+        </div>
+
+        <div class="newbottom">
+            <div class="bottom"><%= link_to '編集する', edit_admins_item_path(@item.id), class:"btn btn-primary pt-3 pb-3 pl-5 pr-5" %></div>
+        </div>
+    </div>
+</div>
+

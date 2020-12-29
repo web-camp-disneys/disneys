@@ -1,2 +1,47 @@
-<h1>Admins::Customer#edit</h1>
-<p>Find me in app/views/admins/customer/edit.html.erb</p>
+<h3 style="margin:45px 0 50px 140px;"><span class="alert-dark pl-3 pr-3">
+  <%="#{@customer.last_name} #{@customer.first_name}"%>さんの会員情報編集
+</span></h3>
+<%= render "layouts/error_messages", resource: @customer %>
+<%= form_with model:@customer, url: admins_customer_path(@customer.id), method: :patch, local:true do |f| %>
+
+<div style="margin-left:140px;">
+    <p>
+        会員ID<span style="margin-right:110px;"></span>
+        <%= @customer.id %>
+    </p>
+    <p>
+        氏名<span style="margin-right:110px;"></span>
+        <%= f.text_field :last_name, :size => "15*15" %><span style="margin-right:20px;"></span><%= f.text_field :first_name, :size => "15*15" %>
+    </p>
+    <p>
+        フリガナ<span style="margin-right:78px;"></span>
+        <%= f.text_field :last_name_kana, :size => "15*15" %><span style="margin-right:20px;"></span><%= f.text_field :first_name_kana, :size => "15*15" %>
+    </p>
+    <p>
+        郵便番号<span style="margin-right:78px;"></span>
+        <%= f.text_field :postal_code, :size => "15*15" %>
+    </p>
+    <p>
+        住所<span style="margin-right:110px;"></span>
+        <%= f.text_field :address, :size => "51*51" %>
+    </p>
+    <p>
+        電話番号<span style="margin-right:78px;"></span>
+        <%= f.text_field :telephone_number, :size => "22*22" %>
+    </p>
+    <p>
+        メールアドレス<span style="margin-right:32px;"></span>
+        <%= f.text_field :email, :size => "22*22" %>
+    </p>
+    <p>
+        会員ステータス<span style="margin-right:32px;"></span>
+        <%= f.radio_button :is_deleted, '有効' %>
+        <%= f.label :is_deleted, '有効な会員', value:"有効" %>
+        <%= f.radio_button :is_deleted,'無効' %>
+        <%= f.label :is_deleted, '無効な会員', value:"無効" %><br>
+    </p>
+    
+    <p style="margin-top:40px;"><%= f.submit '変更を保存する', class:"btn btn-primary" %></p>
+
+</div>
+<% end %>

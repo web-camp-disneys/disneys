@@ -1,0 +1,93 @@
+// Place all the styles related to the admins::item controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Button-style {
+  font-size: 18px;
+  display: inline-block;
+  background: #ffffff;
+  color: #cc99ff;
+  width: 50px;
+  height: 50px;
+  border: double 1px black;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+// ページタイトルの余白
+.title{
+  margin: 30px 0 80px 200px;
+}
+// ファイル選択の余白
+.newimage{
+  margin-top: 100px;
+}
+// 登録などのボタンの余白
+.bottom{
+  margin-top: 380px;
+}
+// 商品説明
+.newexplanation{
+  width: 250px;
+  word-wrap: break-word;
+  vertical-align: top;
+  // overflow: scroll;
+}
+
+// 商品説明 インライン要素に変更
+.display{
+  display: inline-block;
+}
+
+// 新規登録 商品編集 /商品説明
+textarea[name="item[introduction]"]{
+  height: 160px;
+}
+
+// 新規登録ジャンル
+select[name="item[genre_id]"]{
+  width: 260px;
+}
+// 新規登録税抜価格
+select[name="item[is_active]"]{
+  width: 260px;
+}
+// 新規登録販売ステータス
+ input[type="number"] {
+        width: 260px;
+    }
+
+// 新規登録 /margin
+.newss{
+  margin-right: 46px;
+}
+
+// 商品詳細　/文字の太さ
+.font{
+  font-weight: bold;
+}
+// 商品名
+.name{
+  margin-right: 45px;
+}
+// 商品説明欄
+.setu{
+  margin: 0 30px 160px 0;
+}
+// 新規登録 商品編集
+.marbo{
+  margin-bottom: 20px;
+}
+// ジャンルの余白
+.jan{
+  margin-right: 32px;
+}
+// 価格の余白
+.kaka{
+  margin-right: 30px;
+}
+// 販売ステータスの余白
+.han{
+  margin-right: 63px;
+}

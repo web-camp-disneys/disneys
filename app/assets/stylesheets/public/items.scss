@@ -1,0 +1,21 @@
+// Place all the styles related to the Public::Items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+[name="cart_item[amount]"]{
+    width: 0px;
+}
+
+// cart_items 数量
+.ss{
+    width: 260px;
+}
+
+// public/items/ 詳細
+.sr{
+    width: 45px;
+}
+
+.genre_table {
+    position: sticky;
+}

@@ -1,3 +1,28 @@
 // Place all the styles related to the admins::customer controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+[name="customer[last_name]"]{
+  text-align: center;
+}
+[name="customer[first_name]"]{
+ text-align: center;
+}
+[name="customer[last_name_kana]"]{
+ text-align: center;
+}
+[name="customer[first_name_kana]"]{
+ text-align: center;
+}
+[name="customer[postal_code]"]{
+  text-align: center;
+}
+[name="customer[address]"]{
+ text-align: center;
+}
+[name="customer[telephone_number]"]{
+ text-align: center;
+}
+[name="customer[email]"]{
+ text-align: center;
+}
